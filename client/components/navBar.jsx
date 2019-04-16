@@ -427,7 +427,7 @@ export class NavBar extends Component {
                   className="font-weight-bold spot"
                   style={{ paddingLeft: 5, float: "left" }}
                 >
-                  <span className="navHeading">PR0T0TYP3</span> <span id="navDashboard" style={{ color: "#fff", fontSize: 15 }}>DASHBOARD</span> <span className="version" id="version">{this.props.version}</span>
+                  <span className="navHeading">TRICERATOPS</span> <span id="navDashboard" style={{ color: "#fff", fontSize: 15 }}>DASHBOARD</span> <span className="version" id="version">{this.props.version}</span>
                 </div>
               </div>
             </Link><div style={{ display: this.state.showNav }}>
