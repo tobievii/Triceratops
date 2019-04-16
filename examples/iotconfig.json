@@ -1,0 +1,10 @@
+{
+  "ssl": true,
+  "sslOptions": {
+    "certPath": "/etc/letsencrypt/live/prototype.iotnxt.io/fullchain.pem",
+    "keyPath": "/etc/letsencrypt/live/prototype.iotnxt.io/privkey.pem"
+  },
+  "httpPort": 80,
+  "httpsPort": 443,
+  "mongoConnection": "mongodb://testuser:testpass@mongotest.iotnxt.io:27017/prototype"
+}
