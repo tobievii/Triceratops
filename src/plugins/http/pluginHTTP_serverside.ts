@@ -8,11 +8,8 @@ export const name = "HTTP"
 
 export function init(app: any, db: any, eventHub: events.EventEmitter) {
   app.get("/api/v3/http/routes", (req: any, res: any) => {
-
-    getroutes(db, (err: Error, routes: any) => {
+    getroutes(db, req.user, (err: Error, routes: any) => {
       if (err) res.json({ err: err.toString() });
-
-
       res.json(routes);
     });
   });
@@ -35,7 +32,7 @@ export function init(app: any, db: any, eventHub: events.EventEmitter) {
   })
 
   app.post("/api/v3/http/addroute", (req: any, res: any) => {
-    if (req.user.level < 100) {
+    if (req.user.level < 1) {
       res.json({ err: "permission denied" });
       return;
     }
@@ -48,8 +45,6 @@ export function init(app: any, db: any, eventHub: events.EventEmitter) {
       } else {
         listenRoute(app, result, eventHub);
         res.json(result);
-
-
       }
     });
   });
@@ -62,16 +57,12 @@ export function init(app: any, db: any, eventHub: events.EventEmitter) {
     });
   });
 
-  // CONNECT ROUTES!
-  getroutes(db, (err: Error, routes: any) => {
+  //CONNECT ROUTES!
+  getroutes(db, undefined, (err: Error, routes: any) => {
     if (routes) {
       for (var route of routes) {
-
         ///////
         listenRoute(app, route, eventHub)
-
-
-
         ////////////
       }
     }
@@ -101,8 +92,14 @@ export function listenRoute(app: any, route: any, eventHub: events.EventEmitter)
   })
 }
 
-export function getroutes(db: any, cb: any) {
-  db.plugins_http.find({}, cb);
+export function getroutes(db: any, user: any, cb: any) {
+  if (user) {
+    db.plugins_http.find({ apikey: user.apikey }, cb);
+  }
+
+  if (user == undefined) {
+    db.plugins_http.find({}, cb);
+  }
 }
 
 

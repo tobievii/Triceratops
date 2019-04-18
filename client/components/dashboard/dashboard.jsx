@@ -23,6 +23,7 @@ import { ChartLine } from "./chart_line.jsx"
 import { WidgetButton } from "./widgetButton.jsx"
 import { WidgetBlank } from "./widget_blank.jsx"
 import { WidgetMesh } from "./widget_mesh.jsx"
+import { WidgetForm } from "./widget_form.jsx"
 
 var mapDetails = {
   un: undefined,
@@ -387,6 +388,17 @@ export class Dashboard extends React.Component {
         data={data}
       />)
     }
+
+
+    if (data.type == "form") {
+      return (<WidgetForm
+        state={this.props.state}
+        dash={dash}
+        data={data}
+      />)
+    }
+
+    // ADD WIDGETS ABOVE THIS LINE
     //////////
 
     if (data.type.toUpperCase() == "BLANK") {
@@ -501,7 +513,7 @@ export class Dashboard extends React.Component {
 
       return (
         <div
-          style={{ minHeight: 50, textAlign: "center" }}
+          style={{ minHeight: 50 }}
           onDragOver={(e) => this.onDragOver(e)}
           onDrop={(e) => this.onDrop(e, "complete")} >
           {this.generateDashboard()}

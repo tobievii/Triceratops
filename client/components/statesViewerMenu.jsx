@@ -29,8 +29,15 @@ export class StatesViewerMenu extends Component {
         this.state = { selectAll: false, sort: "", menu: "", view: "map", addIcon: "fas fa-plus-circle", display: "", showAddDevice: "none", addDeviceButton: "none", ssid: "", wifipass: "", code: [], modalIsOpen: false }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        fetch("/api/v3/getsort", {
+            method: "GET", headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        }).then(response => response.json()).then(serverresponse => {
+            if (serverresponse.sort == null || serverresponse.sort == undefined) {
+                serverresponse.sort = "";
+            }
+            this.setState({ sort: serverresponse.sort })
+        }).catch(err => console.error(err.toString()));
     }
-
 
     selectBox = () => {
         if (this.props.public == false) {

@@ -193,6 +193,15 @@ export class StatesViewer extends Component {
 
     this.socket = socketio();
 
+    fetch("/api/v3/getsort", {
+      method: "GET", headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    }).then(response => response.json()).then(serverresponse => {
+      if (serverresponse.sort == null || serverresponse.sort == undefined) {
+        serverresponse.sort = "";
+      }
+      this.setState({ sort: serverresponse.sort })
+    }).catch(err => console.error(err.toString()));
+
     this.socket.on("connect", a => {
       this.socket.emit("join", this.props.username)
       this.socket.on("info", (info) => {
@@ -460,6 +469,12 @@ export class StatesViewer extends Component {
 
     this.setState({ devicesView: newDeviceList }, this.selectCountUpdate);
     this.setState({ sort: value });
+
+    fetch("/api/v3/sort", {
+      method: "POST", headers: { "Accept": "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({ sort: value })
+    }).then(response => response.json()).then(serverresponse => {
+    }).catch(err => console.error(err.toString()));
   }
 
   selectCountUpdate = () => {

@@ -16,6 +16,11 @@ var testAccount = {
 
 import * as http from "http";
 
+import { teltonikaTestMocha } from "./teltonika_simulate"
+
+// Disabled for now until we can get a repeatable method
+// teltonikaTestMocha();
+
 describe("API", function () {
   describe("REST API", function () {
     var testvalue: any;

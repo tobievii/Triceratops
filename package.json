@@ -27,6 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/chai": "^4.1.7",
+    "@types/crc": "^3.4.0",
     "@types/cryptr": "^4.0.0",
     "@types/enzyme": "^3.1.16",
     "@types/express": "^4.16.0",
@@ -41,6 +42,7 @@
     "chai": "^4.2.0",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.3",
+    "crc": "^3.8.0",
     "cryptr": "^4.0.2",
     "css-loader": "^2.1.0",
     "discord.js": "^11.4.2",

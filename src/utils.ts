@@ -9,6 +9,32 @@ import * as accounts from "./accounts"
 
 import * as logger from "./log"
 
+class ASYNCMONGO {
+    constructor() {
+
+    }
+
+    find(db: any, collection: string, filter: Object) {
+        return new Promise((resolve: any, reject: any) => {
+            db[collection].find(filter, (err: any, result: any) => {
+                resolve({ err, result });
+            })
+        });
+    }
+
+    findOne(db: any, collection: string, filter: Object) {
+        return new Promise((resolve: any, reject: any) => {
+            db[collection].findOne(filter, (err: any, result: any) => {
+                resolve({ err, result });
+            })
+        });
+    }
+}
+
+export var asyncdb = new ASYNCMONGO();
+
+
+
 // Tests to see if we are online.
 export function online(): Promise<any> {
     return new Promise((resolve: any, reject: any) => {

@@ -270,7 +270,8 @@ export function accountCreate(db: any, email: any, userAgent: any, ip: any, cb: 
     email: email.toLowerCase(),
     apikey: generate(32),
     password: generateDifficult(16),
-    level: 0
+    level: 0,
+    sort: ""
   };
 
 

@@ -46,8 +46,6 @@ const { VM } = require('vm2');
 
 var db = mongojs(config.mongoConnection, config.mongoCollections);
 
-import { logDb } from "./log"
-logDb(db);//pass db instance to logger
 var eventHub = new events.EventEmitter();
 import { plugins } from "./plugins/config"
 import * as stats from "./stats"
@@ -878,6 +876,20 @@ app.put("/api/v3/data/put", (req: any, res: any, next: any) => {
 
 app.post("/api/v3/data/post", (req: any, res: any, next: any) => {
   handleState(req, res, next);
+});
+
+app.post("/api/v3/sort", (req: any, res: any) => {
+  db.users.update({ apikey: req.user.apikey }, { $set: { sort: req.body.sort } }, (err: Error, response: any) => {
+    if (err) res.json(err);
+    if (response) res.json({ result: "added sort" });
+  })
+});
+
+app.get("/api/v3/getsort", (req: any, res: any) => {
+  db.users.findOne({ apikey: req.user.apikey }, (err: Error, response: any) => {
+    if (err) res.json(err);
+    if (response) res.json({ sort: response.sort });
+  })
 });
 
 function checkExsisting(req: any, res: any) {

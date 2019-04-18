@@ -9,7 +9,7 @@ import * as discord from "./discord/discord"
 import * as mqttPlugin from "./mqttserver/mqttPlugin"
 import * as httpPlugin from "./http/pluginHTTP_serverside"
 import * as notifications from "./notifications/notifications"
-
+import * as teltonika from "./teltonika/plugin_teltonika"
 
 plugins.push(account)
 plugins.push(admin)
@@ -20,3 +20,4 @@ plugins.push(discord);
 plugins.push(mqttPlugin);
 plugins.push(httpPlugin);
 plugins.push(notifications);
+plugins.push(teltonika);
