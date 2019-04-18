@@ -82,10 +82,7 @@
     "web-push": "^3.3.3",
     "webpack": "^4.20.2",
     "webpack-command": "^0.4.1",
-    "webpack-dev-server": "^3.3.1",
-    "hbs": "~4.0.4",
-    "express-ws": "3.0.0",
-    "shelljs": "0.8.3"
+    "webpack-dev-server": "^3.3.1"
   },
   "devDependencies": {
     "webpack-cli": "^3.2.1"
