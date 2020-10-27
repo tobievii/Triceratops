@@ -1,4 +1,4 @@
-cryptography==1.7.1
+cryptography==3.2
 Flask==0.12.1
 geocoder==1.38.1
 oauthlib==2.0.1
