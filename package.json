@@ -57,7 +57,7 @@
     "mocha-jenkins-reporter": "^0.4.1",
     "mongojs": "^2.6.0",
     "mqtt": "^2.18.8",
-    "nodemailer": "^4.7.0",
+    "nodemailer": "^6.4.16",
     "nodemon": "^1.18.10",
     "poly2tri": "^1.5.0",
     "public-ip": "^3.0.0",
