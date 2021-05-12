@@ -47,7 +47,7 @@
     "monaco-editor-webpack-plugin": "^1.5.4",
     "monaco-themes": "^0.2.5",
     "node-sass": "^4.11.0",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "npm": "^6.9.0",
     "poly2tri": "^1.5.0",
     "random-string": "^0.2.0",
