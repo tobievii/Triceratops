@@ -43,7 +43,7 @@
     "leaflet": "^1.4.0",
     "leaflet-draw": "^1.0.4",
     "mailcomposer": "^4.0.2",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "monaco-editor-webpack-plugin": "^1.5.4",
     "monaco-themes": "^0.2.5",
     "node-sass": "^4.11.0",
